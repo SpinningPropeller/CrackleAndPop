@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="svgContainer" style="width:50%"></div>
+
+    <script type="text/javascript" src="js/snap.svg-min.js"></script>
+    <script type="text/javascript" src="js/crackle.js"></script>
+
+    <script type="text/javascript">
+
+        var s = Snap("#svgContainer");
+        var l = Snap.load("svgs/DarkTowerPoster.svg", onSVGLoaded);
+        function onSVGLoaded(data){
+            s.append(data);
+            var textLines = s.selectAll("#text path");
+            var alertMe = function(){
+                alert("HEY");
+            }
+            drawLines(textLines, 2, 12000, "white", true, alertMe);
+        }
+    </script>
+</body>
+</html>
